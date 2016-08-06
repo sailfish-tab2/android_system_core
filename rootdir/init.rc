@@ -499,8 +499,9 @@ on post-fs-data
 on boot
     # basic network init
     ifup lo
-    hostname localhost
-    domainname localdomain
+# Conflicts with Mer
+    #hostname localhost
+    #domainname localdomain
 
     # Memory management.  Basic kernel parameters, and allow the high
     # level system server to be able to adjust the kernel OOM driver
