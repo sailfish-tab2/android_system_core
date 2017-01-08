@@ -660,6 +660,8 @@ service ueventd /sbin/ueventd
     class core
     critical
     seclabel u:r:ueventd:s0
+#Not used by Mer
+    disabled
 
 service healthd /sbin/healthd
     class core
