@@ -526,7 +526,7 @@ static void import_late(const std::vector<std::string>& args, size_t start_index
     if (end_index <= start_index) {
         // Use the default set if no path is given
         static const std::vector<std::string> init_directories = {
-            "/system/etc/init",
+            "/usr/libexec/droid-hybris/system/etc/init",
             "/vendor/etc/init",
             "/odm/etc/init"
         };

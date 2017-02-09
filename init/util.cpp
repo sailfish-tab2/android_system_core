@@ -176,7 +176,8 @@ out_close:
 bool read_file(const char* path, std::string* content) {
     content->clear();
 
-    int fd = TEMP_FAILURE_RETRY(open(path, O_RDONLY|O_NOFOLLOW|O_CLOEXEC));
+    // Allow symlinks in Mer
+    int fd = TEMP_FAILURE_RETRY(open(path, O_RDONLY|O_CLOEXEC));
     if (fd == -1) {
         return false;
     }
