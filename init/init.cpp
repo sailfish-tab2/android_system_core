@@ -501,6 +501,9 @@ static void security_failure() {
 }
 
 static void selinux_initialize(bool in_kernel_domain) {
+    // Disable in Mer
+    return;
+
     Timer t;
 
     selinux_callback cb;

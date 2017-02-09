@@ -344,6 +344,8 @@ bool Service::Start() {
     }
 
     std::string scon;
+// Disable SELinux
+/*
     if (!seclabel_.empty()) {
         scon = seclabel_;
     } else {
@@ -386,7 +388,7 @@ bool Service::Start() {
             return false;
         }
     }
-
+*/
     NOTICE("Starting service '%s'...\n", name_.c_str());
 
     pid_t pid = fork();
@@ -402,7 +404,7 @@ bool Service::Start() {
                                 (si.type == "dgram" ? SOCK_DGRAM :
                                  SOCK_SEQPACKET)));
             const char* socketcon =
-                !si.socketcon.empty() ? si.socketcon.c_str() : scon.c_str();
+                !si.socketcon.empty() ? si.socketcon.c_str() : NULL;
 
             int s = create_socket(si.name.c_str(), socket_type, si.perm,
                                   si.uid, si.gid, socketcon);
@@ -454,6 +456,7 @@ bool Service::Start() {
                 _exit(127);
             }
         }
+/*
         if (!seclabel_.empty()) {
             if (setexeccon(seclabel_.c_str()) < 0) {
                 ERROR("cannot setexeccon('%s'): %s\n",
@@ -461,6 +464,7 @@ bool Service::Start() {
                 _exit(127);
             }
         }
+*/
 
         std::vector<std::string> expanded_args;
         std::vector<char*> strs;
