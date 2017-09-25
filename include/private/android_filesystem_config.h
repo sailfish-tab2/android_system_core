@@ -202,7 +202,7 @@ static const struct android_id_info android_ids[] = {
     { "sdcard_all",    AID_SDCARD_ALL, },
     { "logd",          AID_LOGD, },
     { "shared_relro",  AID_SHARED_RELRO, },
-    { "dbus",          AID_DBUS, },
+    { "adbus",         AID_DBUS, },
     { "tlsdate",       AID_TLSDATE, },
     { "mediaex",       AID_MEDIA_EX, },
     { "audioserver",   AID_AUDIOSERVER, },
